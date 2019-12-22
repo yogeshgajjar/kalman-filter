@@ -45,7 +45,7 @@ class KalmanFilter():
                   covariances (as a TxDxD array) representing the KF's belief
                   state AFTER each update/predict cycle, over T timesteps.
         """
-        # FILL in your code here
+
         t = np.arange(0,10,0.1)
         predicted_mean = np.zeros(shape=(t.shape[0],4))
         predicted_sigma = np.zeros(shape=(t.shape[0],4,4)) 
@@ -62,14 +62,12 @@ class KalmanFilter():
 
 
     def _predict(self):
-        # FILL in your code here
 
         self.mu = np.dot(self.A, self.mu)
         self.sigma = np.dot(np.dot(self.A, self.sigma), np.transpose(self.A)) + self.R
 
 
     def _update(self, z):
-        # FILL in your code here
 
         y = z - np.dot(self.C, self.mu)
         S = np.dot(np.dot(self.C, self.sigma), np.transpose(self.C)) + self.Q
@@ -125,7 +123,6 @@ def plot_mse(t, ground_truth, predict_means):
 
 
 def problem2a():
-    # FILL in your code here
     t = np.arange(0,10,0.1)
     A = np.array([[1,0.1,0,0],[0,1,0.1,0],[0,0,1,0.1],[0,0,0,1]])
     C = np.array([[1,0,0,0]])
@@ -154,7 +151,6 @@ def problem2a():
 
 
 def problem2b():
-    # FILL in your code here
     t = np.arange(0,10,0.1)
     A = np.array([[1,0.1,0,0],[0,1,0.1,0],[0,0,1,0.1],[0,0,0,1]])
     C = np.array([[1,0,0,0]])
