@@ -122,7 +122,7 @@ def plot_mse(t, ground_truth, predict_means):
     plt.show()
 
 
-def problem2a():
+def kalman_filter_without_noise():
     t = np.arange(0,10,0.1)
     A = np.array([[1,0.1,0,0],[0,1,0.1,0],[0,0,1,0.1],[0,0,0,1]])
     C = np.array([[1,0,0,0]])
@@ -139,7 +139,6 @@ def problem2a():
         true_value[i][0] = math.sin(0.1*t[i])
 
     predict_mean, predict_cov = kf_2a.run(sensor_data) 
-    # print(t.shape, true_value.shape, sensor_data.shape, predict_mean.shape, predict_cov.shape)
     plot_prediction(t, true_value, sensor_data, predict_mean, predict_cov) 
 
     N = 10000
@@ -150,7 +149,7 @@ def problem2a():
     plot_mse(t, true_value, predict_means)
 
 
-def problem2b():
+def kalman_filter_with_noise():
     t = np.arange(0,10,0.1)
     A = np.array([[1,0.1,0,0],[0,1,0.1,0],[0,0,1,0.1],[0,0,0,1]])
     C = np.array([[1,0,0,0]])
@@ -167,7 +166,6 @@ def problem2b():
         true_value[i][0] = math.sin(0.1*t[i])
 
     predict_mean, predict_cov = kf_2b.run(sensor_data) 
-    # print(t.shape, true_value.shape, sensor_data.shape, predict_mean.shape, predict_cov.shape)
     plot_prediction(t, true_value, sensor_data, predict_mean, predict_cov) 
 
     N = 10000
@@ -181,5 +179,5 @@ def problem2b():
     
 
 if __name__ == '__main__':
-    problem2a()
-    problem2b()
+    kalman_filter_without_noise()
+    kalman_filter_with_noise()
