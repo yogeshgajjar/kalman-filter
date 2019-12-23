@@ -176,8 +176,6 @@ def kalman_filter_with_noise():
         
     plot_mse(t, true_value, predict_means)
 
-    
-
 if __name__ == '__main__':
     kalman_filter_without_noise()
     kalman_filter_with_noise()
