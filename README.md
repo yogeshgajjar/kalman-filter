@@ -14,9 +14,14 @@ Assumptions -
 
 To track the position of an object of unknown dynamics. We used a constant jerk model that assumes that the acceleration is linear. Also, the discrete time-step of delta t = 0.1, and T = 100 timesteps the dynamics are as follows 
 
-Motion Model : 
+Motion Model without Noise : 
 * `x(t+1) = Ax(t)`
 * `A = [1 0.1 0 0; 0 1 0.1 0; 0 0 1 0.1; 0 0 0 1]`
+
+Motion Model with Noise : 
+* `x(t+1) = Ax(t) + w(t)`
+* `w(t)` is noise with zero mean and covariance 
+`R = [0.1 0 0 0; 0 0.1 0 0; 0 0 0.1 0; 0 0 0 0.1]`
 
 Observation Model : 
 * `z(t) = Cx(t) + v(t)`
@@ -31,6 +36,19 @@ The initial belief is as follows
 The true position of the object changes as follows - 
 * `p(t) = sin(0.1 * t) with p(0) = 0` 
 
+## Results 
+
+Plot of the error evolves vs time (Kalman Filter with no motion model noise)
+![plot of error vs time](/Figure_1.png)
+
+Mean Square Error(MSE) averaged over N = 1000 trials (Kalman Filter with no motion model noise)
+![MSE](/Figure_1-1.png)
+
+Plot of the error evolves vs time (Kalman Filter with motion model noise)
+![plot of error vs time](/Figure_1-2.png)
+
+Mean Square Error(MSE) averaged over N = 1000 trials (Kalman Filter with motion model noise)
+![MSE](/Figure_1-3.png)
  <!-- `$z = x + y$`.
 
 `$$a^2 + b^2 = c^2$$`
