@@ -19,18 +19,17 @@ Motion Model :
 * `A = [1 0.1 0 0; 0 1 0.1 0; 0 0 1 0.1; 0 0 0 1]`
 
 Observation Model : 
-`z(t) = Cx(t) + v(t)`
-`C = [1 0 0 0]` 
+* `z(t) = Cx(t) + v(t)`
+* `C = [1 0 0 0]` 
 
 where `v(t)` is a zero-mean Gaussian Sensor Noise with variance `Q = 1.0` 
 
 The initial belief is as follows 
-
-`mu = [5 1 0 0 ]
-`sigma = [10 0 0 0; 0 10 0 0; 0 0 10 0; 0 0 0 10]` 
+* `mu = [5 1 0 0]
+* `sigma = [10 0 0 0; 0 10 0 0; 0 0 10 0; 0 0 0 10]` 
 
 The true position of the object changes as follows - 
-`p(t) = sin(0.1 * t) with p(0) = 0` 
+* `p(t) = sin(0.1 * t) with p(0) = 0` 
 
  <!-- `$z = x + y$`.
 
