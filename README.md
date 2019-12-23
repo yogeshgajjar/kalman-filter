@@ -1,4 +1,4 @@
-# kalman_filter
+# kalman-filter
 
 Kalman filter for tracking the position of an object of unknown dynamics. 
 
@@ -12,11 +12,11 @@ Assumptions -
 
 ## Problem 
 
-To track the position of an object of unknown dynamics. We used a constant jerk model that assumes that the acceleration is linear. Also, the discrete time-step of delta t = 0.1, the dynamics are as follows 
+To track the position of an object of unknown dynamics. We used a constant jerk model that assumes that the acceleration is linear. Also, the discrete time-step of delta t = 0.1, and T = 100 timesteps the dynamics are as follows 
 
 Motion Model : 
-`x(t+1) = Ax(t)`
-`A = [1 0.1 0 0; 0 1 0.1 0; 0 0 1 0.1; 0 0 0 1]`
+* `x(t+1) = Ax(t)`
+* `A = [1 0.1 0 0; 0 1 0.1 0; 0 0 1 0.1; 0 0 0 1]`
 
 Observation Model : 
 `z(t) = Cx(t) + v(t)`
@@ -32,7 +32,6 @@ The initial belief is as follows
 The true position of the object changes as follows - 
 `p(t) = sin(0.1 * t) with p(0) = 0` 
 
-and timesteps T = 100 timesteps 
  <!-- `$z = x + y$`.
 
 `$$a^2 + b^2 = c^2$$`
